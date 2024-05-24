@@ -371,6 +371,6 @@ async def echo(bot, update):
                 chat_id=update.chat.id,
                 text=Translation.FORMAT_SELECTION.format(""),
                 reply_markup=reply_markup,
-                parse_mode=.ParseMode.HTML,
+                parse_mode=ParseMode.HTML,
                 reply_to_message_id=update.id
             )
