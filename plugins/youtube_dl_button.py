@@ -24,7 +24,7 @@ from sample_config import Config
 from translation import Translation
 
 import pyrogram
-from pyrogram import ParseMode
+from pyrogram import enums
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from pyrogram.types import InputMediaPhoto
