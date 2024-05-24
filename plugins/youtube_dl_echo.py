@@ -17,7 +17,7 @@ from sample_config import Config
 from translation import Translation
 
 import pyrogram
-from pyrogram import ParseMode
+from pyrogram.enums import ParseMode
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from helper_funcs.display_progress import humanbytes
 from helper_funcs.help_uploadbot import DownLoadFile
