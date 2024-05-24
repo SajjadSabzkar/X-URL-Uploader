@@ -12,15 +12,14 @@ import os
 import sqlite3
 
 # the secret configuration specific things
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
+from sample_config import Config
+
 
 # the Strings used for this "thing"
 from translation import Translation
 
 import pyrogram
+from telegram import ParseMode 
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
@@ -33,7 +32,7 @@ async def help_user(bot, update):
         await bot.send_message(
             chat_id=update.chat.id,
             text=Translation.HELP_USER,
-            parse_mode="html",
+            parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
             reply_to_message_id=update.message_id
         )

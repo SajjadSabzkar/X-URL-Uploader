@@ -17,15 +17,14 @@ import time
 from datetime import datetime
 
 # the secret configuration specific things
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
+from sample_config import Config
+
 
 # the Strings used for this "thing"
 from translation import Translation
 
 import pyrogram
+from pyrogram import ParseMode
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from pyrogram.types import InputMediaPhoto
@@ -252,7 +251,7 @@ async def youtube_dl_call_back(bot, update):
                     chat_id=update.message.chat.id,
                     audio=download_directory,
                     caption=description,
-                    parse_mode="HTML",
+                    parse_mode=ParseMode.HTML,
                     duration=duration,
                     # performer=response_json["uploader"],
                     # title=response_json["title"],
@@ -272,7 +271,7 @@ async def youtube_dl_call_back(bot, update):
                     document=download_directory,
                     thumb=thumb_image_path,
                     caption=description,
-                    parse_mode="HTML",
+                    parse_mode=ParseMode.HTML,
                     # reply_markup=reply_markup,
                     reply_to_message_id=update.message.reply_to_message.message_id,
                     progress=progress_for_pyrogram,
@@ -302,7 +301,7 @@ async def youtube_dl_call_back(bot, update):
                     chat_id=update.message.chat.id,
                     video=download_directory,
                     caption=description,
-                    parse_mode="HTML",
+                    parse_mode=ParseMode.HTML,
                     duration=duration,
                     width=width,
                     height=height,
@@ -335,7 +334,7 @@ async def youtube_dl_call_back(bot, update):
                                 InputMediaPhoto(
                                     media=image,
                                     caption=caption,
-                                    parse_mode="html"
+                                    parse_mode=ParseMode.HTML
                                 )
                             )
                         else:
