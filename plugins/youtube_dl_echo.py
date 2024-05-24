@@ -81,7 +81,7 @@ async def echo(bot, update):
                     video=dldir,
                     caption=file_name,
                     duration=duration,
-                    reply_to_message_id=update.message_id,
+                    reply_to_message_id=update.id,
                     progress=progress_for_pyrogram,
                     progress_args=(
                         Translation.UPLOAD_START,
@@ -95,7 +95,7 @@ async def echo(bot, update):
                     audio=dldir,
                     caption=file_name,
                     duration=duration,
-                    reply_to_message_id=update.message_id,
+                    reply_to_message_id=update.id,
                     progress=progress_for_pyrogram,
                     progress_args=(
                         Translation.UPLOAD_START,
@@ -108,7 +108,7 @@ async def echo(bot, update):
                     chat_id=update.chat.id,
                     document=dldir,
                     caption=file_name,
-                    reply_to_message_id=update.message_id,
+                    reply_to_message_id=update.id,
                     progress=progress_for_pyrogram,
                     progress_args=(
                         Translation.UPLOAD_START,
@@ -201,7 +201,7 @@ async def echo(bot, update):
             await bot.send_message(
                 chat_id=update.chat.id,
                 text=Translation.NO_VOID_FORMAT_FOUND.format(str(error_message)),
-                reply_to_message_id=update.message_id,
+                reply_to_message_id=update.id,
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True
             )
@@ -333,7 +333,7 @@ async def echo(bot, update):
                 Config.CHUNK_SIZE,
                 None,  # bot,
                 Translation.DOWNLOAD_START,
-                update.message_id,
+                update.id,
                 update.chat.id
             )
             if os.path.exists(thumb_image_path):
@@ -346,7 +346,7 @@ async def echo(bot, update):
                 text=Translation.FORMAT_SELECTION.format(thumbnail) + "\n" + Translation.SET_CUSTOM_USERNAME_PASSWORD,
                 reply_markup=reply_markup,
                 parse_mode=ParseMode.HTML,
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.id
             )
         else:
             # fallback for nonnumeric port a.k.a seedbox.io
@@ -371,5 +371,5 @@ async def echo(bot, update):
                 text=Translation.FORMAT_SELECTION.format(""),
                 reply_markup=reply_markup,
                 parse_mode=ParseMode.HTML,
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.id
             )

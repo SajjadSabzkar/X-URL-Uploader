@@ -48,13 +48,13 @@ async def generate_custom_thumbnail(bot, update):
                         chat_id=update.chat.id,
                         photo=save_final_image,
                         caption=Translation.CUSTOM_CAPTION_UL_FILE.format(mention),
-                        reply_to_message_id=update.message_id
+                        reply_to_message_id=update.id
                     )
                 else:
                     await bot.send_message(
                         chat_id=update.chat.id,
                         text=Translation.ERR_ONLY_TWO_MEDIA_IN_ALBUM,
-                        reply_to_message_id=update.message_id
+                        reply_to_message_id=update.id
                     )
                 try:
                     [os.remove(download_location + i) for i in list_im ]
@@ -65,13 +65,13 @@ async def generate_custom_thumbnail(bot, update):
                 await bot.send_message(
                     chat_id=update.chat.id,
                     text=Translation.REPLY_TO_MEDIA_ALBUM_TO_GEN_THUMB,
-                    reply_to_message_id=update.message_id
+                    reply_to_message_id=update.id
                 )
         else:
             await bot.send_message(
                 chat_id=update.chat.id,
                 text=Translation.REPLY_TO_MEDIA_ALBUM_TO_GEN_THUMB,
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.id
             )
 
 
@@ -98,7 +98,7 @@ async def save_photo(bot, update):
             await bot.send_message(
                 chat_id=update.chat.id,
                 text=Translation.SAVED_CUSTOM_THUMB_NAIL,
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.id
             )
 
 
@@ -114,5 +114,5 @@ async def delthumbnail(bot, update):
         await bot.send_message(
             chat_id=update.chat.id,
             text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL,
-            reply_to_message_id=update.message_id
+            reply_to_message_id=update.id
         )
