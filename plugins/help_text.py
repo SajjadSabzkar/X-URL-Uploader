@@ -19,7 +19,8 @@ from sample_config import Config
 from translation import Translation
 
 import pyrogram
-from pyrogram import enums
+from pyrogram.enums import ParseMode
+
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
